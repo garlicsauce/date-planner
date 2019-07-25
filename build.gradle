@@ -1,6 +1,8 @@
 plugins {
 	id 'org.springframework.boot' version '2.1.6.RELEASE'
 	id 'java'
+	id 'groovy'
+	id 'idea'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -17,6 +19,18 @@ configurations {
 
 repositories {
 	mavenCentral()
+}
+
+sourceSets {
+	test.groovy.srcDirs(
+			"src/test/unit"
+	)
+}
+
+idea {
+	module {
+		test
+	}
 }
 
 dependencies {
